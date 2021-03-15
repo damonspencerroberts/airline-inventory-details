@@ -9,7 +9,7 @@ const Airlines = (props) => {
   });
 
   return(
-    <select id="airlines" name="airlines" onChange = {(e) => props.handleSelect(e.target.value.split(","))}>
+    <select id="airlines" name="airlines" onChange = {(e) => props.handleSelectAirline(e.target.value.split(","))}>
       <option value="" selected>Airlines</option>
       {airlineOptions}
     </select>
