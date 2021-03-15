@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Home from "./home/home";
+import Report from "./report/report";
 
 const Main = () => {
   const [curAirline, setCurAirline] = useState({});
   const [curSelected, setCurSelected] = useState([]);
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     setSpinner(true);
@@ -58,6 +60,10 @@ const Main = () => {
 
   return(
     <div>
+      { showReport ? <Report 
+        selectedItems = {curSelected}
+        airlineName = {curAirline.name}
+      /> : 
       <Home 
         handleSelectAirline = {handleSelectAirline}
         items = {items}
@@ -65,7 +71,8 @@ const Main = () => {
         spinner = {spinner}
         curSelected = {curSelected}
         handleRemove = {handleRemove}
-      />
+        click = {() => setShowReport(true)}
+      />}
     </div>
   );
 }

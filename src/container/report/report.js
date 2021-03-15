@@ -1,10 +1,9 @@
 import React from 'react';
-import Button from "../button/button";
 
-const Selected = (props) => {
+const Report = (props) => {
   const selectedItems = props.selectedItems.map((item) => {
     return (
-      <div onClick = {() => props.removeSelected(item)}>
+      <div>
         <p>{item.name}</p>
         <p>{item.weight}g</p>
       </div>
@@ -16,20 +15,19 @@ const Selected = (props) => {
 
   return (
     <div>
-      <h1>✅  Selected</h1>
+      <div>
+        <h1>{props.airlineName}</h1>
+      </div>
+      <div>
+        <h1>🎒 My backpack</h1>
+      </div>
       {selectedItems}
       <div>
         <p>Total</p>
         <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
       </div>
-      <div>
-        <Button 
-          click = {props.click}
-          content = "Confirm luggage"
-        />
-      </div>
     </div>
   );
-};
+}
 
-export default Selected;
+export default Report;
