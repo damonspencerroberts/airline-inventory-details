@@ -1,0 +1,22 @@
+.card-information {
+  padding: $card-pad;
+
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: .4rem;
+    
+    &-name {
+      font-family: $text-font;
+      font-size: 1.6rem;
+    }
+
+    &-weight {
+      font-family: $headers-font;
+      font-weight: 500;
+      opacity: 0.7;
+    }
+  }
+}

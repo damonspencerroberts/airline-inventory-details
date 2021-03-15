@@ -1,0 +1,21 @@
+.airlines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  select {
+    border-radius: $br;
+    padding: 1rem 1.8rem 1rem 1.5rem;
+    font-family: $headers-font;
+    font-weight: 500;
+    border: none;
+    box-shadow: $box;
+    font-size: 2rem;
+    color: $text;
+  }
+
+  select:active, select:focus {
+    outline: none;
+  }
+}

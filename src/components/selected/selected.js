@@ -1,13 +1,15 @@
 import React from 'react';
 import Button from "../button/button";
+import CardInfo from "../card-info/card-info";
 
 const Selected = (props) => {
   const selectedItems = props.selectedItems.map((item) => {
     return (
-      <div onClick = {() => props.removeSelected(item)}>
-        <p>{item.name}</p>
-        <p>{item.weight}g</p>
-      </div>
+      <CardInfo 
+        onClick = {() => props.removeSelected(item)}
+        name = {item.name}
+        weight = {item.weight}
+      />
     );
   });
 
@@ -15,9 +17,13 @@ const Selected = (props) => {
     .reduce((total, current) => total + current, 0);
 
   return (
-    <div>
-      <h1>✅  Selected</h1>
-      {selectedItems}
+    <div className = "card">
+      <div className="card-header">
+        <h1>✅  Selected</h1>
+      </div>
+      <div className="card-information">
+        {selectedItems}
+      </div>
       <div>
         <p>Total</p>
         <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>

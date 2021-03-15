@@ -9,16 +9,22 @@ const Home = (props) => {
       <Airlines 
         handleSelectAirline = {props.handleSelectAirline} 
       />
-      <Inventory 
-        currentItems = {props.items} 
-        handleClickedItem = {props.handleClickedItem} 
-        spinner = {props.spinner} 
-      />
-      <Selected 
-        selectedItems = {props.curSelected} 
-        removeSelected = {props.handleRemove}
-        click = {props.click}
-      />
+      <div className="parent">
+        <div className="child">
+          <Inventory 
+            currentItems = {props.items} 
+            handleClickedItem = {props.handleClickedItem} 
+            spinner = {props.spinner} 
+          />
+        </div>
+        <div className="child">
+          <Selected 
+            selectedItems = {props.curSelected} 
+            removeSelected = {props.handleRemove}
+            click = {props.click}
+          />
+        </div>
+      </div>
     </div>
   );
 }

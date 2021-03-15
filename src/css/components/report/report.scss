@@ -1,0 +1,20 @@
+.report {
+  padding: 5rem 22rem;
+
+  &-airline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+
+    &-header {
+      border-radius: 30rem;
+      padding: 1rem 4rem;
+      color: $text;
+      font-weight: 400;
+      box-shadow: $box;
+      background-color: $card;
+      font-size: .8rem !important;
+    }
+  }
+}
