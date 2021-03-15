@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Airlines from "../components/airlines/airlines";
-import Inventory from "../components/inventory/inventory";
-import Selected from "../components/selected/selected";
 import axios from "axios";
-
+import Home from "./home/home";
 
 const Main = () => {
   const [curAirline, setCurAirline] = useState({});
@@ -61,9 +58,14 @@ const Main = () => {
 
   return(
     <div>
-      <Airlines handleSelectAirline = {handleSelectAirline} />
-      <Inventory currentItems = {items} handleClickedItem = {handleClickedItem} spinner = {spinner} />
-      <Selected selectedItems = {curSelected} removeSelected = {handleRemove} />
+      <Home 
+        handleSelectAirline = {handleSelectAirline}
+        items = {items}
+        handleClickedItem = {handleClickedItem}
+        spinner = {spinner}
+        curSelected = {curSelected}
+        handleRemove = {handleRemove}
+      />
     </div>
   );
 }
