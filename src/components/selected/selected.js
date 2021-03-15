@@ -10,10 +10,17 @@ const Selected = (props) => {
     );
   });
 
+  const calcTotalWeight = props.selectedItems.map((item) => item.weight)
+    .reduce((total, current) => total + current, 0);
+
   return (
     <div>
       <h1>✅  Selected</h1>
       {selectedItems}
+      <div>
+        <p>Total</p>
+        <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
+      </div>
     </div>
   );
 };
