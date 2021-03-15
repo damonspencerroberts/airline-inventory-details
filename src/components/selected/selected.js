@@ -21,6 +21,9 @@ const Selected = (props) => {
         <p>Total</p>
         <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
       </div>
+      <div>
+        <a href="/report">Confirm luggage</a>
+      </div>
     </div>
   );
 };

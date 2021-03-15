@@ -1,10 +1,10 @@
 import './css/index.scss';
-import Main from "./container/main";
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Routes />
     </div>
   );
 }
