@@ -71,3 +71,12 @@
 .disabled:hover {
   transform: none !important;
 }
+
+.add-red {
+  color: $red;
+  font-weight: 700;
+}
+
+.cursor-auto * {
+  cursor: auto !important;
+}

@@ -27,7 +27,7 @@ const Report = (props) => {
             <h1>🎒 My backpack</h1>
           </div>
         </div>
-        <div className="card-information">
+        <div className="card-information cursor-auto">
           {selectedItems}
         </div>
         <div className="card-border"></div>

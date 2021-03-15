@@ -9,6 +9,7 @@ const Selected = (props) => {
         onClick = {() => props.removeSelected(item)}
         name = {item.name}
         weight = {item.weight}
+        current = "selected"
       />
     );
   });
