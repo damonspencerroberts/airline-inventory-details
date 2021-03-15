@@ -1,9 +1,10 @@
 import './css/index.scss';
+import Main from "./container/main";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World! My name is Damon</h1>
+      <Main />
     </div>
   );
 }
