@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Airlines from "../components/airlines/airlines";
 import Inventory from "../components/inventory/inventory";
+import Selected from "../components/selected/selected";
 
 const Main = () => {
   const [curAirline, setCurAirline] = useState({});
+  const [curSelected, setCurSelected] = useState([]);
   const handleSelect = (currentValue) => {
     //make sure clicking on airlines placeholder doesnt change state
     if (currentValue.length > 1) {
@@ -15,10 +17,17 @@ const Main = () => {
     }
   }
 
+  const handleAdded = (currentElementToAdd) => {
+    const newcurSelected = [...curSelected];
+    newcurSelected.push(currentElementToAdd);
+    setCurSelected(newcurSelected);
+  }
+
   return(
     <div>
       <Airlines handleSelect = {handleSelect} />
-      <Inventory />
+      <Inventory sendElement = {handleAdded} />
+      <Selected selectedItems = {curSelected}/>
     </div>
   );
 }

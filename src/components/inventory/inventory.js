@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
-const Inventory = () => {
+const Inventory = (props) => {
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
 
@@ -18,10 +18,18 @@ const Inventory = () => {
     fetchData();
   }, []);
 
+  const handleClickedItem = (cur) => {
+    props.sendElement(cur);
+    const newItems = [...items];
+    const lookIndex = newItems.findIndex(el => el === cur);
+    newItems.splice(lookIndex, 1);
+    setItems(newItems);
+  }
+
   const showItems = items.map((item) => {
     return (
       //can be its own component
-      <div>
+      <div onClick = {() => handleClickedItem(item)}>
         <p>{item.name}</p>
         <p>{item.weight}g</p>
       </div>
