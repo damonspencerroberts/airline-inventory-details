@@ -3,7 +3,7 @@ import React from 'react';
 const Selected = (props) => {
   const selectedItems = props.selectedItems.map((item) => {
     return (
-      <div>
+      <div onClick = {() => props.removeSelected(item)}>
         <p>{item.name}</p>
         <p>{item.weight}g</p>
       </div>

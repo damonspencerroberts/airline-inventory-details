@@ -4,7 +4,8 @@ import axios from "axios";
 const Inventory = (props) => {
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
-
+  console.log(props.elementRemove);
+  
   useEffect(() => {
     setSpinner(true);
     const fetchData = async () => {

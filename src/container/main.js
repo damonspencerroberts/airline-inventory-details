@@ -6,6 +6,7 @@ import Selected from "../components/selected/selected";
 const Main = () => {
   const [curAirline, setCurAirline] = useState({});
   const [curSelected, setCurSelected] = useState([]);
+  const [curRemove, setCurRemoved] = useState(null);
   const handleSelect = (currentValue) => {
     //make sure clicking on airlines placeholder doesnt change state
     if (currentValue.length > 1) {
@@ -23,11 +24,19 @@ const Main = () => {
     setCurSelected(newcurSelected);
   }
 
+  const handleRemove = (currentElementToRemove) => {
+    const newCurSelected = [...curSelected];
+    const newIndex = newCurSelected.findIndex(e => e === currentElementToRemove);
+    newCurSelected.splice(newIndex, 1);
+    setCurSelected(newCurSelected);
+    setCurRemoved(currentElementToRemove);
+  }
+
   return(
     <div>
       <Airlines handleSelect = {handleSelect} />
-      <Inventory sendElement = {handleAdded} />
-      <Selected selectedItems = {curSelected}/>
+      <Inventory sendElement = {handleAdded} elementRemove = {curRemove} />
+      <Selected selectedItems = {curSelected} removeSelected = {handleRemove} />
     </div>
   );
 }
