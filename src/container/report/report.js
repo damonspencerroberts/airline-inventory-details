@@ -30,9 +30,10 @@ const Report = (props) => {
         <div className="card-information">
           {selectedItems}
         </div>
-        <div>
-          <p>Total</p>
-          <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
+        <div className="card-border"></div>
+        <div className="card-total">
+          <p className="card-total-total">Total</p>
+          <p className="card-total-weight">{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
         </div>
       </div>
     </div>

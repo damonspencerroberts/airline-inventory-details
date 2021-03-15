@@ -22,6 +22,7 @@ const Home = (props) => {
             selectedItems = {props.curSelected} 
             removeSelected = {props.handleRemove}
             click = {props.click}
+            bagAllowed = {props.bagAllowed}
           />
         </div>
       </div>

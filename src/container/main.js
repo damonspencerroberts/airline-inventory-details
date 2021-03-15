@@ -9,6 +9,7 @@ const Main = () => {
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
   const [showReport, setShowReport] = useState(false);
+  const [bagAllowed, setBagAllowed] = useState(false);
 
   useEffect(() => {
     setSpinner(true);
@@ -39,6 +40,7 @@ const Main = () => {
         weight: parseInt(currentValue[1])
       }
       setCurAirline(newObj);
+      isBagAllowed(newObj, curSelected);
     }
   }
 
@@ -46,6 +48,7 @@ const Main = () => {
     const newcurSelected = [...curSelected];
     newcurSelected.push(currentElementToAdd);
     setCurSelected(newcurSelected);
+    isBagAllowed(curAirline, newcurSelected);
   }
 
   const handleRemove = (currentElementToRemove) => {
@@ -56,6 +59,19 @@ const Main = () => {
     const newItems = [...items];
     newItems.push(currentElementToRemove); 
     setItems(newItems);
+    isBagAllowed(curAirline, newCurSelected);
+  }
+
+  const isBagAllowed = (airline, select) => {
+    console.log(select)
+    const totalWeight = select.map(item => item.weight).reduce((total, current) => total + current, 0);
+    const airlineAllowed = airline.weight * 1000;
+    const isAirline = Object.keys(airline).length;
+    if ((airlineAllowed > totalWeight) && (isAirline > 0)) {
+      setBagAllowed(true);
+    } else {
+      setBagAllowed(false);
+    }
   }
 
   return(
@@ -72,6 +88,7 @@ const Main = () => {
         curSelected = {curSelected}
         handleRemove = {handleRemove}
         click = {() => setShowReport(true)}
+        bagAllowed = {bagAllowed ? null : "disabled"}
       />}
     </div>
   );

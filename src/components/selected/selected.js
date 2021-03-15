@@ -21,17 +21,20 @@ const Selected = (props) => {
       <div className="card-header">
         <h1>✅  Selected</h1>
       </div>
-      <div className="card-information">
+      <div className="card-information card-information-min-height">
         {selectedItems}
       </div>
-      <div>
-        <p>Total</p>
-        <p>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
+      <div className="card-border"></div>
+      <div className="card-total">
+        <p className="card-total-total">Total</p>
+        <p className="card-total-weight">{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
       </div>
-      <div>
+      <div className="card-border"></div>
+      <div class="card-button">
         <Button 
           click = {props.click}
           content = "Confirm luggage"
+          buttonClass = {props.bagAllowed}
         />
       </div>
     </div>
