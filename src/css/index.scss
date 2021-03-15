@@ -1,0 +1,19 @@
+//external libraries
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif&display=swap');
+
+//Variables
+@import "variables/variables.scss";
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text;
+  font-family: $text-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headers-font;
+}
