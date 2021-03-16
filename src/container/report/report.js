@@ -21,7 +21,7 @@ const Report = (props) => {
           <h1>{props.airlineName}</h1>
         </div>
       </div>
-      <div className="card">
+      <div className="card sm-card">
         <div className="card-header">
           <div className="card-header-">
             <h1>🎒 My backpack</h1>

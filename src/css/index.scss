@@ -16,7 +16,6 @@
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: transparent !important;
-  overflow: hidden;
 }
 
 body {
@@ -28,4 +27,62 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
+}
+
+@media (max-width: 1299px) {
+  .sm-card {
+    margin: 2rem 0 !important;
+  }
+}
+
+//Media
+
+@media (max-width: 1199px) {
+  body {
+    margin: 3rem 15%;
+  }
+}
+
+@media (max-width: 899px) {
+  html {
+    font-size: 9px;
+  }
+
+  body {
+    margin: 2rem 20%;
+  }
+
+  .parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: .3fr .1fr .3fr;
+  }
+
+  .sm-card {
+    margin: 2rem 0 !important;
+  }
+
+  .report {
+    padding: 3rem 10rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .report {
+    padding: 3rem 3rem;
+  }
+}
+
+@media (max-width: 499px) {
+  html {
+    font-size: 8px;
+  }
+
+  body {
+    margin: 2.5rem 12.5%;
+  }
+
+  .report {
+    padding: 3rem 1rem;
+  }
 }
