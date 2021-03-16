@@ -28,10 +28,10 @@ const Selected = (props) => {
       <div className="card-border"></div>
       <div className="card-total">
         <p className="card-total-total">Total</p>
-        <p className="card-total-weight">{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
+        <p className={`card-total-weight ${props.totalGreen}`}>{calcTotalWeight >= 1000 ? `${calcTotalWeight / 1000}kg` : `${calcTotalWeight}g`}</p>
       </div>
       <div className="card-border"></div>
-      <div class="card-button">
+      <div className="card-button">
         <Button 
           click = {props.click}
           content = "Confirm luggage"

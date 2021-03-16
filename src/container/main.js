@@ -3,13 +3,14 @@ import axios from "axios";
 import Home from "./home/home";
 import Report from "./report/report";
 
-const Main = () => {
+const Main = (props) => {
   const [curAirline, setCurAirline] = useState({});
   const [curSelected, setCurSelected] = useState([]);
   const [spinner, setSpinner] = useState(false);
   const [items, setItems] = useState([]);
   const [showReport, setShowReport] = useState(false);
   const [bagAllowed, setBagAllowed] = useState(false);
+  const [totalGreen, setTotalGreen] = useState('');
 
   useEffect(() => {
     setSpinner(true);
@@ -33,7 +34,6 @@ const Main = () => {
   }
 
   const handleSelectAirline = (currentValue) => {
-    //make sure clicking on airlines placeholder doesnt change state
     if (currentValue.length > 1) {
       const newObj = {
         name: currentValue[0],
@@ -63,17 +63,18 @@ const Main = () => {
   }
 
   const isBagAllowed = (airline, select) => {
-    console.log(select)
     const totalWeight = select.map(item => item.weight).reduce((total, current) => total + current, 0);
     const airlineAllowed = airline.weight * 1000;
     const isAirline = Object.keys(airline).length;
-    if ((airlineAllowed > totalWeight) && (isAirline > 0)) {
+    if ((airlineAllowed > totalWeight) && (isAirline > 0) && (select.length > 0)) {
       setBagAllowed(true);
+      setTotalGreen('add-green');
     } else {
       setBagAllowed(false);
+      setTotalGreen('add-red');
     }
   }
-
+  
   return(
     <div>
       { showReport ? <Report 
@@ -89,6 +90,8 @@ const Main = () => {
         handleRemove = {handleRemove}
         click = {() => setShowReport(true)}
         bagAllowed = {bagAllowed ? null : "disabled"}
+        airlineName = {curAirline.name}
+        totalGreen = {totalGreen}
       />}
     </div>
   );

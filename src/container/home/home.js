@@ -7,7 +7,8 @@ const Home = (props) => {
   return (
     <div>
       <Airlines 
-        handleSelectAirline = {props.handleSelectAirline} 
+        handleSelectAirline = {props.handleSelectAirline}
+        airlineName = {props.airlineName}
       />
       <div className="parent">
         <div className="child">
@@ -17,12 +18,16 @@ const Home = (props) => {
             spinner = {props.spinner} 
           />
         </div>
+        <div className="arrow">
+          <i className="fas fa-arrow-right fa-3x"></i>
+        </div>
         <div className="child">
           <Selected 
             selectedItems = {props.curSelected} 
             removeSelected = {props.handleRemove}
             click = {props.click}
             bagAllowed = {props.bagAllowed}
+            totalGreen = {props.totalGreen}
           />
         </div>
       </div>

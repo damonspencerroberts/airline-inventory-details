@@ -1,21 +1,64 @@
-.airlines {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+.airlines-main {
+  font-family: $headers-font;
 
-  select {
+  .dropdown-container {
+    width: 20rem;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .dropdown-header {
+    margin-bottom: 1.2rem;
+    padding: 1rem 2rem;
     border-radius: $br;
-    padding: 1rem 1.8rem 1rem 1.5rem;
-    font-family: $headers-font;
-    font-weight: 500;
-    border: none;
     box-shadow: $box;
-    font-size: 2rem;
+    font-weight: 500;
+    font-size: 1.8rem;
     color: $text;
+    background: $card;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  select:active, select:focus {
-    outline: none;
+  .dropdown-list {
+    padding: 0.5rem;
+    padding-left: 1em;
+    background: $card;
+    color: $text;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: $box;
+    width: 20rem;
+
+    &:first-child {
+      padding-top: 0.8em;
+    }
   }
+
+  .list-item {
+    list-style: none;
+    margin-bottom: 0.8em;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .list-item:hover {
+    opacity: 1;
+  }
+
+  .icon-carot {
+    font-size: 2.5rem;
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
